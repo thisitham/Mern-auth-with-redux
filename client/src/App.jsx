@@ -8,6 +8,7 @@ import Profile from './pages/Profile'
 
 export default function App() {
   return <BrowserRouter>
+    {/* header*/}
     <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='/about' element={<About/>}/>
