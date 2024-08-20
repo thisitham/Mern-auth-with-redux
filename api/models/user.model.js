@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
     }
-},{timeseries: true}) //{timeseries: true} use to create some extra information to each user when creating //we no need to create manually them it will aotomatically do mongoose
+},{timestamps: true}) //{timeseries: true} use to create some extra information to each user when creating //we no need to create manually them it will aotomatically do mongoose
 
 const User = mongoose.model('User', userSchema);
 
