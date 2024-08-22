@@ -1,11 +1,11 @@
-import { set } from "mongoose";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function SignUp() {
   const [formData, setFormData] = useState({});
   const [error, setError] = useState(false); //this is for show error when occur //initially false
   const [loading, setLoading] = useState(false); //this is for show buton display as loading when submiting data //initially false
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value }); //"e.target.id" means input tag eke id eka
@@ -34,6 +34,7 @@ export default function SignUp() {
         setError(true); //if got error error set true
         return;
       }
+      navigate("/sign-in");
     } catch (error) {
       setLoading(false); // when error occured loading false
       setError(true); // when error occured error true
@@ -69,9 +70,8 @@ export default function SignUp() {
           disabled={loading}
           className="bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80"
         >
-          {" "}
           {/* disabled={loading} means when loading button desabled */}
-          {loading ? "Loading..." : "Sign Up"}{" "}
+          {loading ? "Loading..." : "Sign Up"}
           {/*it means if loading true show 'Loading...' else show 'Sign Up'*/}
         </button>
       </form>
