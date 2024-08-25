@@ -19,7 +19,11 @@ export default function Header() {
           </Link>
           <Link to="/profile">
             {currentUser ? ( //if currentUser variable have data ,then show follow image here , otherwise show as "Sign In"
-              <img src={currentUser.profilePicture} alt="profile" className="h-7 w-7 rounded-full object-cover"/>
+              <img
+                src={currentUser.profilePicture}
+                alt="profile"
+                className="h-7 w-7 rounded-full object-cover"
+              />
             ) : (
               <li>Sign In</li>
             )}

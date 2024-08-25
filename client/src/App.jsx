@@ -18,7 +18,7 @@ export default function App() {
         <Route path="/sign-in" element={<Signin />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route element={<PrivateRoute />}>
-          <Route path="/profile" element={<Profile />} />{" "}
+          <Route path="/profile" element={<Profile/>} />
           {/* this <Profile /> is child element of <PrivateRoute/> */}
         </Route>
       </Routes>
