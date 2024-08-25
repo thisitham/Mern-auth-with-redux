@@ -62,7 +62,7 @@ export default function Profile() {
         />
         {/*accept="image/*"  means only can choos image format  //[0] means choosing only 1 file, that's why 0 is as 1st file */}
         <img
-          src={currentUser.profilePicture}
+          src={formData.profilePicture || currentUser.profilePicture}
           alt="profile"
           className="h-24 w-24 self-center cursor-pointer rounded-full object-cover mt-2"
           onClick={() => fileRef.current.click()}
