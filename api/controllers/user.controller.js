@@ -10,7 +10,7 @@ export const test = (req,res) => {
 
 //update user
 export const updateUser = async (req, res, next) => {
-    if (req.user.id !== req.params.id) { //req.user.id comes from jwt when verify user
+    if (req.user.id !== req.params.id) { //req.user.id comes from jwt when verify user //look verifyUser.js
         return next(errorHandler(401,"you can update only your account..!"));
     }
 
@@ -35,5 +35,17 @@ export const updateUser = async (req, res, next) => {
         res.status(200).json(rest);
     } catch (error) {
         next(error);
+    }
+}
+
+export const deleteUser = async (req,res,next) => {
+    if (req.user.id !== req.params.id) { //req.user.id comes from jwt when verify user //look verifyUser.js
+        return next(errorHandler(401, "you can delete only your account..!"))
+    }
+    try {
+        await User.findByIdAndDelete(req.params.id);
+        res.status(200).json('User has been deleted...')
+    } catch (error) {
+        next(error)
     }
 }
